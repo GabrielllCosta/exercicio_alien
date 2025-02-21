@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício do Alien</title>
+    <title>Gabriel Leon Lima Costa</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <style> body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } </style>
 </head>
@@ -45,7 +46,7 @@
         var pontuacao = 0;
         var placar;
         var blocos = [plataforma,tijolo]
-        
+
         // carrega as imagens 
         function preload() {
             this.load.image('background', 'assets/bg.png'); 
@@ -84,9 +85,9 @@
 
             //adciona moeda
             moeda = this.physics.add.sprite(larguraJogo/2, 0, 'moeda');
-            moeda.setCollideWorldBounds(true);
-            moeda.setBounce(0.7);
-            this.physics.add.collider(moeda, plataforma);
+            moeda.setCollideWorldBounds(true);// não vai atravessar as bordas
+            moeda.setBounce(0.7);// ela vai quicar
+            this.physics.add.collider(moeda, plataforma);//colidir com a as imagens do cenário
             this.physics.add.collider(moeda, tijolo);
             
             
@@ -134,6 +135,8 @@
 
         }
 
+        // funções para aparecer e sumir o foguinho
+    
         function ativarTurbo(){
             fogo.setVisible(true);
         }
